@@ -1,10 +1,10 @@
 ---
 title: New Beginnings, 60 Characters (or So!) In Length
-date: "2015-05-28T22:40:32.169Z"
-cover: "zoltan-tasi-uNXmhzcQjxg-unsplash.jpg"
-cover_credit: "Zoltan Tasi"
+date: '2015-05-28T22:40:32.169Z'
+cover: 'zoltan-tasi-uNXmhzcQjxg-unsplash.jpg'
+cover_credit: 'Zoltan Tasi'
 cover_alt: A custom alt text blurb for accessibility//fallback
-cover_credit_link: "https://google.com"
+cover_credit_link: 'https://google.com'
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 

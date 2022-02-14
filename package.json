@@ -19,15 +19,15 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
-    "rehype-sanitize": "^5.0.1",
+    "rehype-document": "^6.0.1",
+    "rehype-meta": "^3.2.1",
     "rehype-stringify": "^9.0.3",
-    "remark-extract-frontmatter": "^3.2.0",
     "remark-frontmatter": "^4.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "to-vfile": "^7.2.3",
     "unified": "^10.1.1",
-    "vfile-reporter": "^7.0.3",
-    "yaml": "^1.10.2"
+    "vfile-matter": "^3.0.1",
+    "vfile-reporter": "^7.0.3"
   }
 }
