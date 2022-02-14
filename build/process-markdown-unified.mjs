@@ -1,3 +1,5 @@
+import { mkdir, rm, writeFile } from 'fs/promises';
+import path from 'path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -8,6 +10,8 @@ import rehypeMeta from 'rehype-meta';
 import { read } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { matter } from 'vfile-matter';
+
+const DIST_DIR = path.resolve('dist');
 
 async function processMarkdown() {
   const srcFile = await read('content/2022-02-13-test-post/test-post.md');
@@ -33,13 +37,17 @@ async function processMarkdown() {
       og: true,
       twitter: true,
       copyright: true,
-      type: 'article',
     })
     .use(rehypeStringify)
     .process(srcFile);
 
   console.error(reporter(output));
-  console.log(String(output));
+
+  await rm(DIST_DIR, {
+    recursive: true,
+  });
+  await mkdir(DIST_DIR);
+  writeFile(path.join(DIST_DIR, 'written.html'), String(output));
 }
 
 processMarkdown();
