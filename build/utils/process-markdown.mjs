@@ -9,9 +9,10 @@ import rehypeMeta from 'rehype-meta';
 import { read, write } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { matter } from 'vfile-matter';
-import { DIST_DIR, POSTS_DIR } from './constants.mjs';
+import { DIST_DIR, SITE_URL } from './constants.mjs';
+import { mkdirSync } from 'fs';
 
-export default async function processMarkdown(srcFile) {
+export default async function processMarkdown(srcFile, metadata = {}) {
   if (!srcFile) {
     console.error('Error: processMarkdown requires a valid source path');
     return null;
@@ -21,8 +22,8 @@ export default async function processMarkdown(srcFile) {
   const fileDetails = path.parse(srcFile);
 
   vFile.data.meta = {
-    origin: 'https://test-domain.com',
-    pathname: '/hard-coded-output-path/',
+    origin: SITE_URL,
+    pathname: `/${fileDetails.name}/`,
   };
 
   const output = await unified()
@@ -33,9 +34,7 @@ export default async function processMarkdown(srcFile) {
         strip: true,
       });
     })
-    .use(remarkRehype, {
-      allowDangerousHtml: true,
-    })
+    .use(remarkRehype)
     .use(rehypeDocument, {
       css: 'https://test-domain/css/some-global-styles.css',
     })
@@ -44,13 +43,16 @@ export default async function processMarkdown(srcFile) {
       twitter: true,
       copyright: true,
     })
-    .use(rehypeStringify, {
-      allowDangerousHtml: true,
-    })
+    .use(rehypeStringify)
     .process(vFile);
 
+  const postDir = path.join(DIST_DIR, fileDetails.name);
+  mkdirSync(postDir, {
+    recursive: true,
+  });
+
   await write({
-    path: path.join(DIST_DIR, `${fileDetails.name}.html`),
+    path: path.join(postDir, 'index.html'),
     value: String(output),
   });
 
