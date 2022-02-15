@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "build:posts": "node build/build-posts.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
+    "readdirp": "^3.6.0",
     "rehype-document": "^6.0.1",
     "rehype-meta": "^3.2.1",
     "rehype-stringify": "^9.0.3",

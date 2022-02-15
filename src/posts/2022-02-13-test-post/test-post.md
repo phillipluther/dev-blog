@@ -6,6 +6,10 @@ cover_credit: 'Zoltan Tasi'
 cover_alt: A custom alt text blurb for accessibility//fallback
 cover_credit_link: 'https://google.com'
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+tags:
+  - blog post
+  - test
+  - tag
 ---
 
 For full fairness this test post was ripped off from GatsbyJS.

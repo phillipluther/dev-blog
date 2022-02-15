@@ -1,4 +1,3 @@
-import { mkdir, rm, writeFile } from 'fs/promises';
 import path from 'path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -7,16 +6,21 @@ import remarkFrontmatter from 'remark-frontmatter';
 import rehypeStringify from 'rehype-stringify';
 import rehypeDocument from 'rehype-document';
 import rehypeMeta from 'rehype-meta';
-import { read } from 'to-vfile';
+import { read, write } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { matter } from 'vfile-matter';
+import { DIST_DIR, POSTS_DIR } from './constants.mjs';
 
-const DIST_DIR = path.resolve('dist');
+export default async function processMarkdown(srcFile) {
+  if (!srcFile) {
+    console.error('Error: processMarkdown requires a valid source path');
+    return null;
+  }
 
-async function processMarkdown() {
-  const srcFile = await read('content/2022-02-13-test-post/test-post.md');
+  const vFile = await read(srcFile);
+  const fileDetails = path.parse(srcFile);
 
-  srcFile.data.meta = {
+  vFile.data.meta = {
     origin: 'https://test-domain.com',
     pathname: '/hard-coded-output-path/',
   };
@@ -29,7 +33,9 @@ async function processMarkdown() {
         strip: true,
       });
     })
-    .use(remarkRehype)
+    .use(remarkRehype, {
+      allowDangerousHtml: true,
+    })
     .use(rehypeDocument, {
       css: 'https://test-domain/css/some-global-styles.css',
     })
@@ -38,16 +44,15 @@ async function processMarkdown() {
       twitter: true,
       copyright: true,
     })
-    .use(rehypeStringify)
-    .process(srcFile);
+    .use(rehypeStringify, {
+      allowDangerousHtml: true,
+    })
+    .process(vFile);
+
+  await write({
+    path: path.join(DIST_DIR, `${fileDetails.name}.html`),
+    value: String(output),
+  });
 
   console.error(reporter(output));
-
-  await rm(DIST_DIR, {
-    recursive: true,
-  });
-  await mkdir(DIST_DIR);
-  writeFile(path.join(DIST_DIR, 'written.html'), String(output));
 }
-
-processMarkdown();
