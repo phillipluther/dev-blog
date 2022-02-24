@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build:posts": "node build/build-posts.mjs",
+    "serve": "http-server dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
+    "http-server": "^14.1.0",
     "readdirp": "^3.6.0",
     "rehype-document": "^6.0.1",
     "rehype-meta": "^3.2.1",
