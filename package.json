@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
+    "handlebars": "^4.7.7",
     "http-server": "^14.1.0",
     "readdirp": "^3.6.0",
     "rehype-document": "^6.0.1",

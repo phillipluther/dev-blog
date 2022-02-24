@@ -4,8 +4,6 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import remarkFrontmatter from 'remark-frontmatter';
 import rehypeStringify from 'rehype-stringify';
-import rehypeDocument from 'rehype-document';
-import rehypeMeta from 'rehype-meta';
 import { read, write } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { matter } from 'vfile-matter';
@@ -35,26 +33,20 @@ export default async function processMarkdown(srcFile, metadata = {}) {
       });
     })
     .use(remarkRehype)
-    .use(rehypeDocument, {
-      css: 'https://test-domain/css/some-global-styles.css',
-    })
-    .use(rehypeMeta, {
-      og: true,
-      twitter: true,
-      copyright: true,
-    })
     .use(rehypeStringify)
     .process(vFile);
 
-  const postDir = path.join(DIST_DIR, fileDetails.name);
-  mkdirSync(postDir, {
-    recursive: true,
-  });
+  // const postDir = path.join(DIST_DIR, fileDetails.name);
+  // mkdirSync(postDir, {
+  //   recursive: true,
+  // });
 
-  await write({
-    path: path.join(postDir, 'index.html'),
-    value: String(output),
-  });
+  // await write({
+  //   path: path.join(postDir, 'index.html'),
+  //   value: String(output),
+  // });
 
   console.error(reporter(output));
+
+  return output;
 }
