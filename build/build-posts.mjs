@@ -5,6 +5,7 @@ import hb from 'handlebars';
 import { DIST_DIR, POSTS_DIR, TEMPLATE_DIR, SITE_URL } from './utils/constants.mjs';
 import clean from './utils/clean.mjs';
 import processMarkdown from './utils/process-markdown.mjs';
+import processImage from './utils/process-image.mjs';
 
 clean();
 
@@ -41,8 +42,13 @@ for await (const entry of readdirp(POSTS_DIR, {
   for await (const asset of readdirp(srcDir, {
     fileFilter: ['!**/*.md'],
   })) {
-    if (/(\.jpg|\.png|\.gif)$/.test(asset.path)) {
-      copyFileSync(asset.fullPath, path.join(destDir, asset.basename));
+    if (/(\.jpg|\.png)$/.test(asset.path)) {
+      const processed = await processImage(asset.fullPath);
+
+      Object.keys(processed).forEach((size) => {
+        const { name, data } = processed[size];
+        writeFileSync(path.join(destDir, name), data);
+      });
     }
   }
 }
