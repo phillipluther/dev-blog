@@ -5,7 +5,7 @@ cover: 'zoltan-tasi-uNXmhzcQjxg-unsplash.jpg'
 cover_credit: 'Zoltan Tasi'
 cover_alt: A custom alt text blurb for accessibility//fallback
 cover_credit_link: 'https://google.com'
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+description: What's it gonna look like with apostrophes and "quoted" things? It'll break?
 tags:
   - blog post
   - test
