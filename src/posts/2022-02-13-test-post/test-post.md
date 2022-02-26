@@ -1,7 +1,7 @@
 ---
 title: New Beginnings, 60 Characters (or So!) In Length
 date: '2015-05-28T22:40:32.169Z'
-cover: 'zoltan-tasi-uNXmhzcQjxg-unsplash.jpg'
+cover: 'test-post-cover.jpg'
 cover_credit: 'Zoltan Tasi'
 cover_alt: A custom alt text blurb for accessibility//fallback
 cover_credit_link: 'https://google.com'

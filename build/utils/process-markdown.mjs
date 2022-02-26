@@ -4,6 +4,7 @@ import remarkRehype from 'remark-rehype';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeStringify from 'rehype-stringify';
+import rehypeSrcset from './rehype-srcset.mjs';
 import { read } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { matter } from 'vfile-matter';
@@ -26,6 +27,7 @@ export default async function processMarkdown(srcFile) {
       });
     })
     .use(remarkRehype)
+    .use(rehypeSrcset)
     .use(rehypeStringify)
     .process(vFile);
 

@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import path from 'path';
 
 const sizes = {
-  sm: 480,
+  sm: 720,
   md: 1280,
   lg: 1920,
 };
