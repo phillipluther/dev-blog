@@ -9,6 +9,7 @@ const sizes = {
 
 export default async function (imgPath) {
   const { ext, name: imgSlug } = path.parse(imgPath);
+
   const processed = {
     original: {
       name: imgSlug + ext,
@@ -16,14 +17,14 @@ export default async function (imgPath) {
     },
     placeholder: {
       name: `${imgSlug}-placeholder${ext}`,
-      data: await sharp(imgPath).resize(sizes.sm).blur(15).toBuffer(),
+      data: await sharp(imgPath).resize(sizes.sm).jpeg({ quality: 40 }).blur(15).toBuffer(),
     },
   };
 
   for (const size of Object.keys(sizes)) {
     processed[size] = {
       name: `${imgSlug}-${size}${ext}`,
-      data: await sharp(imgPath).resize(sizes[size]).jpeg({ mozjpeg: true }).toBuffer(),
+      data: await sharp(imgPath).resize(sizes[size]).jpeg({ quality: 60 }).toBuffer(),
     };
   }
 
