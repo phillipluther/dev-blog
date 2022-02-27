@@ -11,10 +11,9 @@
     <meta property="og:image" content="{{ metadata.cover }}" />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
 
-    <link rel="manifest" href="site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#4d4b48" />
 
     {% block head %}{% endblock %}
@@ -26,7 +25,7 @@
     </header>
 
     <main id="main">
-      {% block content %}
+      {% block main %}
       {{ content }}
       {% endblock %}
     </main>
@@ -37,6 +36,20 @@
       <section>
         <h3 class="sr-only">Supplemental Navigation</h3>
         {% include "./partials/primary-nav.njk" %}
+        {% include "./partials/social.njk" %}
+      </section>
+
+      <section>
+        <h3 class="sr-only">Copyright and Disclaimers</h3>
+
+        <p>
+          All content on the Principled Engineer is Copyright &copy; 2022
+          by Phillip Luther unless otherwise specified.
+        </p>
+        <p>
+          The opinions expressed on this site belong to me, Phillip Luther, and do not necessarily
+          reflect the views or opinions of any associated organizations or corporate entities.
+        </p>
       </section>
     </footer>
   </body>

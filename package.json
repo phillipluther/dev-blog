@@ -5,7 +5,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build:posts": "node build/build-posts.mjs",
+    "build:posts": "node build/render-posts.mjs",
+    "build:static": "node build/copy-static.mjs",
+    "build": "node build/build-all.mjs",
+    "clean": "rm -rf dist",
     "serve": "http-server dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

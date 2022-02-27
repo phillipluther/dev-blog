@@ -1,13 +1,11 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { writeFileSync } from 'fs';
 import path from 'path';
 import readdirp from 'readdirp';
 import { DIST_DIR, POSTS_DIR, TEMPLATE_DIR, SITE_URL } from './utils/constants.mjs';
 import nunjucks from './utils/nunjucks-env.mjs';
-import clean from './utils/clean.mjs';
+import ensure from './utils/ensure.mjs';
 import processMarkdown from './utils/process-markdown.mjs';
 import processImage from './utils/process-image.mjs';
-
-clean();
 
 for await (const entry of readdirp(POSTS_DIR, {
   fileFilter: ['**/*.md'],
@@ -16,9 +14,7 @@ for await (const entry of readdirp(POSTS_DIR, {
   const srcDir = path.join(POSTS_DIR, dir);
   const destDir = path.join(DIST_DIR, slug);
 
-  mkdirSync(destDir, {
-    recursive: true,
-  });
+  ensure(destDir);
 
   const { data, value: content } = await processMarkdown(path.join(POSTS_DIR, entry.path));
   const { title, ...metadata } = data.matter;
