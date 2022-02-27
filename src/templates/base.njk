@@ -1,5 +1,4 @@
 <html lang="en">
-
   <head>
     <meta charset="utf-8" />
     <title>{{title}}</title>
@@ -18,14 +17,27 @@
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#4d4b48" />
 
-    <style>
-      img {
-        max-width: 100%;
-      }
-    </style>
+    {% block head %}{% endblock %}
   </head>
 
   <body>
-    {{{content}}}
+    <header id="header">
+      {% include "./partials/primary-nav.njk" %}
+    </header>
+
+    <main id="main">
+      {{content|safe}}
+
+      {% block main %}{% endblock %}
+    </main>
+
+    <footer id="footer">
+      <h2 class="sr-only">Page Footer</h2>
+
+      <section>
+        <h3 class="sr-only">Supplemental Navigation</h3>
+        {% include "./partials/primary-nav.njk" %}
+      </section>
+    </footer>
   </body>
 </html>

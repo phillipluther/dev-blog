@@ -1,16 +1,13 @@
-import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import readdirp from 'readdirp';
-import hb from 'handlebars';
+import nunjucks from 'nunjucks';
 import { DIST_DIR, POSTS_DIR, TEMPLATE_DIR, SITE_URL } from './utils/constants.mjs';
 import clean from './utils/clean.mjs';
 import processMarkdown from './utils/process-markdown.mjs';
 import processImage from './utils/process-image.mjs';
 
 clean();
-
-const postTemplateContent = readFileSync(path.join(TEMPLATE_DIR, 'base.hbs'), 'utf8');
-const postTemplate = hb.compile(postTemplateContent);
 
 for await (const entry of readdirp(POSTS_DIR, {
   fileFilter: ['**/*.md'],
@@ -26,7 +23,7 @@ for await (const entry of readdirp(POSTS_DIR, {
   const { data, value: content } = await processMarkdown(path.join(POSTS_DIR, entry.path));
   const { title, ...metadata } = data.matter;
 
-  const rendered = postTemplate({
+  const rendered = nunjucks.render(path.join(TEMPLATE_DIR, 'post.njk'), {
     title,
     url: new URL(slug, SITE_URL),
     metadata: {
