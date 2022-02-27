@@ -1,8 +1,8 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import readdirp from 'readdirp';
-import nunjucks from 'nunjucks';
 import { DIST_DIR, POSTS_DIR, TEMPLATE_DIR, SITE_URL } from './utils/constants.mjs';
+import nunjucks from './utils/nunjucks-env.mjs';
 import clean from './utils/clean.mjs';
 import processMarkdown from './utils/process-markdown.mjs';
 import processImage from './utils/process-image.mjs';

@@ -1,7 +1,25 @@
 {% extends "./base.njk" %}
 
-{% block main %}
-<section>
-  <h2>Supplemental Content</h2>
-</section>
+{% block content %}
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    <p>{{ metadata.description }}</p>
+    <p><time>{{ metadata.date | date }}</time></p>
+    <p>
+      {{ content | wordcount | readtime }} minute read
+      <span>({{ content | wordcount }} words)</span>
+    </p>
+  </header>
+
+  <section>
+    {{ content }}
+  </section>
+
+  <footer>
+    <section>
+      <h2>Supplemental Content</h2>
+    </section>
+  </footer>
+</article>
 {% endblock %}
