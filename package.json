@@ -5,11 +5,13 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build:posts": "node build/render-posts.mjs",
-    "build:static": "node build/copy-static.mjs",
-    "build": "node build/build-all.mjs",
+    "build:posts": "node --experimental-specifier-resolution=node lib/build/posts",
+    "build:static": "node --experimental-specifier-resolution=node lib/build/static",
+    "build": "node --experimental-specifier-resolution=node lib/build",
     "clean": "rm -rf dist",
     "serve": "http-server dist",
+    "dev": "live-server dist --no-browser",
+    "predev": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +28,7 @@
   "devDependencies": {
     "dayjs": "^1.10.7",
     "http-server": "^14.1.0",
+    "live-server": "^1.2.1",
     "nunjucks": "^3.2.3",
     "readdirp": "^3.6.0",
     "rehype-document": "^6.0.1",
@@ -39,7 +42,6 @@
     "to-vfile": "^7.2.3",
     "unified": "^10.1.1",
     "unist-util-visit": "^4.1.0",
-    "vfile-matter": "^3.0.1",
-    "vfile-reporter": "^7.0.3"
+    "vfile-matter": "^3.0.1"
   }
 }
