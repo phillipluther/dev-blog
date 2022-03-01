@@ -9,10 +9,11 @@
     "build:static": "node --experimental-specifier-resolution=node lib/build/static",
     "build": "node --experimental-specifier-resolution=node lib/build",
     "clean": "rm -rf dist",
-    "serve": "http-server dist",
-    "dev": "live-server dist --no-browser",
+    "serve": "live-server dist --no-browser",
+    "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "predev": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node --experimental-specifier-resolution=node lib/watch"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "dayjs": "^1.10.7",
     "http-server": "^14.1.0",
     "live-server": "^1.2.1",
