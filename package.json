@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "build:pages": "node --experimental-specifier-resolution=node lib/build/pages",
     "build:posts": "node --experimental-specifier-resolution=node lib/build/posts",
     "build:static": "node --experimental-specifier-resolution=node lib/build/static",
     "build": "node --experimental-specifier-resolution=node lib/build",
