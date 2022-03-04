@@ -1,0 +1,25 @@
+$color-core-lightest: #e7e5e4;
+$color-core-lighter: #c1bfbe;
+$color-core-light: #9b9998;
+$color-core: #747271;
+$color-core-dark: #4e4c4b;
+$color-core-darker: #282625;
+$color-core-darkest: #020000;
+
+$font-display: 'Noto Serif Display', serif;
+$font-normal: 'Lora', serif;
+
+$text-0: 0.8rem;
+$text-1: 1rem;
+$text-2: 1.25rem;
+$text-3: 1.563rem;
+$text-4: 1.953rem;
+$text-5: 2.441rem;
+$text-6: 3.052rem;
+$text-7: 3.815rem;
+$text-8: 4.768rem;
+$text-9: 5.96rem;
+
+@custom-media --screen-sm (min-width: 560px);
+@custom-media --screen-md (min-width: 720px);
+@custom-media --screen-lg (min-width: 960px);

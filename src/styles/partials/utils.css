@@ -1,0 +1,37 @@
+.reset {
+  &* {
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul& {
+    list-style: none;
+  }
+}
+
+.font {
+  &-display {
+    font-family: $font-display;
+  }
+}
+
+.title {
+  &-[*] {
+    font-family: $font-display;
+  }
+
+  &-page {
+    font-size: $text-5;
+
+    @media (--screen-sm) {
+      font-size: $text-6;
+    }
+  }
+}
+
+.text {
+  &-sm {
+    font-size: $text-0;
+  }
+}
