@@ -34,6 +34,7 @@
     "dayjs": "^1.10.7",
     "http-server": "^14.1.0",
     "live-server": "^1.2.1",
+    "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.3",
     "postcss": "^8.4.7",
     "postcss-custom-media": "^8.0.0",

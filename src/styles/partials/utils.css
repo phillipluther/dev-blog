@@ -1,5 +1,6 @@
 .reset {
-  &* {
+  ul&,
+  ol& {
     font-size: inherit;
     margin: 0;
     padding: 0;
@@ -10,23 +11,63 @@
   }
 }
 
+.container {
+  padding: $space-sm;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .font {
   &-display {
     font-family: $font-display;
+    font-weight: 600; /* the only flavor we've got! */
+  }
+
+  &-normal {
+    font-family: $font-normal;
+    font-weight: inherit;
   }
 }
 
 .title {
-  &-[*] {
+  &-sm,
+  &-md,
+  &-lg,
+  &-xl {
     font-family: $font-display;
+    font-weight: 600;
+    margin: 0 0 1em;
+    color: $color-core-dark;
+    text-shadow: 1px 0px 0px $color-core-darker;
   }
 
-  &-page {
-    font-size: $text-5;
+  &-sm,
+  &-md {
+    line-height: 1.25;
+  }
 
-    @media (--screen-sm) {
-      font-size: $text-6;
-    }
+  &-lg,
+  &-xl {
+    line-height: 1.15;
+  }
+
+  &-sm {
+    font-size: $text-1;
+  }
+
+  &-md {
+    font-size: $text-3;
+  }
+
+  &-lg {
+    font-size: $text-5;
+  }
+
+  &-xl {
+    font-size: $text-6;
   }
 }
 

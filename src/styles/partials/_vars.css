@@ -6,19 +6,46 @@ $color-core-dark: #4e4c4b;
 $color-core-darker: #282625;
 $color-core-darkest: #020000;
 
+$color-accent-lightest: #ffffc6;
+$color-accent-lighter: #ffd57a;
+$color-accent-light: #c7882d;
+$color-accent: #a16207;
+$color-accent-dark: #7b3c00;
+$color-accent-darker: #551600;
+$color-accent-darkest: #2e0000;
+
 $font-display: 'Noto Serif Display', serif;
 $font-normal: 'Lora', serif;
 
-$text-0: 0.8rem;
-$text-1: 1rem;
-$text-2: 1.25rem;
-$text-3: 1.563rem;
-$text-4: 1.953rem;
-$text-5: 2.441rem;
-$text-6: 3.052rem;
-$text-7: 3.815rem;
-$text-8: 4.768rem;
-$text-9: 5.96rem;
+/* 1.25 scaling */
+$scale-0: 0.8;
+$scale-1: 1;
+$scale-2: 1.25;
+$scale-3: 1.563;
+$scale-4: 1.953;
+$scale-5: 2.441;
+$scale-6: 3.052;
+$scale-7: 3.815;
+$scale-8: 4.768;
+$scale-9: 5.96;
+
+$text-0: $(scale-0)rem;
+$text-1: $(scale-1)rem;
+$text-2: $(scale-2)rem;
+$text-3: $(scale-3)rem;
+$text-4: $(scale-4)rem;
+$text-5: $(scale-5)rem;
+$text-6: $(scale-6)rem;
+$text-7: $(scale-7)rem;
+$text-8: $(scale-8)rem;
+$text-9: $(scale-9)rem;
+
+/* 1.618 scaling */
+$space-xs: 10px;
+$space-sm: 16px;
+$space-md: 26px;
+$space-lg: 42px;
+$space-xl: 68px;
 
 @custom-media --screen-sm (min-width: 560px);
 @custom-media --screen-md (min-width: 720px);

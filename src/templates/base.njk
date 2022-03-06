@@ -24,13 +24,13 @@
   </head>
 
   <body>
-    <header id="header">
+    <header id="header" class="container">
       {% if isHome %}
         <h1 class="reset branding">
       {% else %}
         <p class="reset branding">
       {% endif %}
-        <a href="/" class="branding--link">
+        <a href="/" class="branding--link focusable">
           <img
             src="/images/principled-engineer-logo.svg"
             class="branding--logo"
@@ -52,7 +52,7 @@
       {% endblock %}
     </main>
 
-    <footer id="footer">
+    <footer id="footer" class="container">
       <h2 class="sr-only">Page Footer</h2>
 
       <section>
@@ -60,13 +60,10 @@
         <nav class="footerNav">
           <ul class="reset flex font-display">
             <li>
-              <a href="/">Home</a>
+              <a href="/" class="footerNav--link focusable">Home</a>
             </li>
             <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
+              <a href="/contact" class="footerNav--link focusable">Contact</a>
             </li>
           </ul>
         </nav>

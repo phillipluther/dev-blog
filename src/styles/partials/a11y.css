@@ -10,3 +10,36 @@
   width: 1px;
   word-wrap: normal !important;
 }
+
+.focusable {
+  $transition-timing: 180ms;
+
+  text-decoration: none;
+  position: relative;
+  color: $color-accent-dark;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    border-bottom: 3px solid $color-accent-dark;
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    transition: width $transition-timing, left $transition-timing;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid $color-accent-dark;
+    outline-offset: 1px;
+  }
+}

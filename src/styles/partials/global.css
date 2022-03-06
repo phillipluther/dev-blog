@@ -8,13 +8,13 @@ html {
 
 html,
 body {
-  margin: 0;
   background: $color-core-lightest;
 }
 
 body {
   font-family: $font-normal;
   color: $color-core-darker;
+  line-height: $scale-3;
 }
 
 * {
@@ -27,8 +27,10 @@ body {
  * Global header styles
  */
 .branding {
+  margin: 0;
+
   &--logo {
     width: auto;
-    height: 56px;
+    height: 80px;
   }
 }
