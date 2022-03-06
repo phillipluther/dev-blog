@@ -24,7 +24,7 @@ body {
 /**
  *
  * ============================================
- * Global header styles
+ * Global component styles
  */
 .branding {
   margin: 0;
@@ -32,5 +32,19 @@ body {
   &--logo {
     width: auto;
     height: 80px;
+  }
+}
+
+.footerNav {
+  $padding-offset: calc($space-sm / 2);
+
+  margin-left: calc($padding-offset * -1);
+
+  &--link {
+    display: block;
+    line-height: 48px;
+    white-space: nowrap;
+    padding-left: $padding-offset;
+    padding-right: $padding-offset;
   }
 }
