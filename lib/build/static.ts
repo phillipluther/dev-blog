@@ -1,5 +1,5 @@
 import { cpSync } from 'fs';
-import { STATIC_DIR, DIST_DIR } from '../constants.mjs';
+import { STATIC_DIR, DIST_DIR } from '../constants';
 import { ensure, isCli } from './utils';
 
 export default function buildStatic() {

@@ -7,7 +7,7 @@ const sizes = {
   lg: 1920,
 };
 
-export default async function (imgPath) {
+export default async function (imgPath: string) {
   const { ext, name: imgSlug } = path.parse(imgPath);
 
   const processed = {

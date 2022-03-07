@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs';
 import { DIST_DIR, TEMPLATES_DIR } from '../../constants';
 import { ensure, nunjucks } from '../utils';
 
-export default async function buildPage(srcFile, slug = '', data = async () => ({})) {
+export default async function buildPage(srcFile: string, slug = '', data = async () => ({})) {
   const timerHandle = `[build-page] Rendered ${srcFile.replace(TEMPLATES_DIR, '')}`;
 
   console.time(timerHandle);
