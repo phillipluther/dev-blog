@@ -9,7 +9,7 @@
     "build:posts": "ts-node lib/build/posts",
     "build:static": "ts-node lib/build/static",
     "build:styles": "ts-node lib/build/styles",
-    "build": "node --experimental-specifier-resolution=node lib/build",
+    "build": "ts-node lib/build",
     "clean": "rm -rf dist",
     "serve": "live-server dist --no-browser",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",

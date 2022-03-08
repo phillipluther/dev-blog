@@ -1,14 +1,34 @@
 import path from 'path';
 import { writeFileSync } from 'fs';
 import readdirp from 'readdirp';
+import { VFileValue } from 'vfile';
 import { DIST_DIR, SITE_URL, TEMPLATES_DIR, POSTS_DIR } from '../../constants';
 import { ensure, nunjucks, processMarkdown, processImage } from '../utils';
 
-export async function getPostData(src) {
+export type Post = {
+  title: string;
+  url: URL;
+  metadata: {
+    date: string;
+    description: string;
+    cover: string;
+    cover_credit: string;
+    cover_alt: string;
+    cover_credit_link: string;
+    tags: string[];
+    type: string;
+    slug: string;
+  };
+  content: VFileValue;
+};
+
+export type Frontmatter = Post['metadata'] & { title: string };
+
+export async function getPostData(src: string): Promise<Post> {
   const { name: slug } = path.parse(src);
   const filepath = path.isAbsolute(src) === false ? path.join(POSTS_DIR, src) : src;
   const { data, value: content } = await processMarkdown(filepath);
-  const { title, ...metadata } = data.matter;
+  const { title, ...metadata } = data.matter as Frontmatter;
 
   return {
     title,
@@ -23,7 +43,7 @@ export async function getPostData(src) {
 }
 
 export default async function buildPost(
-  srcFile,
+  srcFile: string,
   options = {
     postsDir: POSTS_DIR,
   },
@@ -33,31 +53,19 @@ export default async function buildPost(
     return false;
   }
 
-  const { name: slug, dir } = path.parse(srcFile);
-  const srcDir = path.join(options.postsDir, dir);
-  const destDir = path.join(DIST_DIR, slug);
-
   const shortName = srcFile.replace(POSTS_DIR, '');
   const renderTimer = `[build-post] Rendered ${shortName}`;
   const assetsTimer = `[build-post] Processed image assets for ${shortName}`;
 
-  ensure(destDir);
-
   console.time(renderTimer);
 
-  const { data, value: content } = await processMarkdown(path.join(options.postsDir, srcFile));
-  const { title, ...metadata } = data.matter;
+  const { dir } = path.parse(srcFile);
+  const srcDir = path.join(options.postsDir, dir);
+  const postData = await getPostData(srcFile);
+  const destDir = path.join(DIST_DIR, postData.metadata.slug);
+  const rendered = nunjucks.render(path.join(TEMPLATES_DIR, 'post.njk'), postData);
 
-  const rendered = nunjucks.render(path.join(TEMPLATES_DIR, 'post.njk'), {
-    title,
-    url: new URL(slug, SITE_URL),
-    metadata: {
-      ...metadata,
-      type: 'article',
-    },
-    content,
-  });
-
+  ensure(destDir);
   writeFileSync(path.join(destDir, 'index.html'), rendered);
 
   console.timeEnd(renderTimer);

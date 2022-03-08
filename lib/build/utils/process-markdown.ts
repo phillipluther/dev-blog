@@ -27,6 +27,7 @@ export default async function processMarkdown(srcFile) {
     })
     .use(remarkRehype)
     .use(rehypeSrcset)
+    /* @ts-ignore */
     .use(rehypeStringify)
     .process(vFile);
 

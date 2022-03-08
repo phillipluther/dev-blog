@@ -20,7 +20,7 @@ export default async function (srcFilename, isProd = false) {
     timerHandle = `[build-stylesheet] Built ${distFilename}`;
 
     if (isProd) {
-      plugins.push(cssnano);
+      postcssPlugins.push(cssnano);
     }
 
     console.time(timerHandle);
