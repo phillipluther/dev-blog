@@ -9,7 +9,9 @@
     <li class="postList--item">
       <article>
         <header>
-          <h2>{{ post.title }}</h2>
+          <h2 class="title-md">
+            <a href="/{{ post.metadata.slug }}">{{ post.title }}</a>
+          </h2>
           <p><time>{{ post.metadata.date | date }}</time></p>
           <p>
             {{ post.content | wordcount | readtime }} minute read

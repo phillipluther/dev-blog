@@ -33,6 +33,7 @@
 }
 
 .title {
+  &,
   &-sm,
   &-md,
   &-lg,
@@ -42,6 +43,10 @@
     margin: 0 0 1em;
     color: $color-core-dark;
     text-shadow: 1px 0px 0px $color-core-darker;
+
+    & a {
+      color: inherit;
+    }
   }
 
   &-sm,

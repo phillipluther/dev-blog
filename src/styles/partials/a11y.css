@@ -30,8 +30,7 @@
     transition: width $transition-timing, left $transition-timing;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     &::after {
       width: 100%;
       left: 0;
@@ -39,6 +38,7 @@
   }
 
   &:focus {
+    border-radius: 3px;
     outline: 2px solid $color-accent-dark;
     outline-offset: 1px;
   }
