@@ -9,6 +9,7 @@
     "build:posts": "node --experimental-specifier-resolution=node lib/build/posts",
     "build:static": "node --experimental-specifier-resolution=node lib/build/static",
     "build:styles": "node --experimental-specifier-resolution=node lib/build/styles",
+    "build:scripts": "node --experimental-specifier-resolution=node lib/build/scripts",
     "build": "node --experimental-specifier-resolution=node lib/build",
     "clean": "rm -rf dist",
     "serve": "live-server dist --no-browser",
@@ -29,6 +30,8 @@
   },
   "homepage": "https://github.com/phillipluther/dev-blog#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@tsconfig/node16": "^1.0.2",
     "@types/nunjucks": "^3.2.1",
     "@types/sharp": "^0.29.5",
@@ -55,12 +58,15 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "remark-unwrap-images": "^3.0.1",
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2",
     "sharp": "^0.30.1",
     "to-vfile": "^7.2.3",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.2",
     "unified": "^10.1.1",
     "unist-util-visit": "^4.1.0",
     "vfile-matter": "^3.0.1"
+  },
+  "dependencies": {
+    "tactical-focus": "^0.2.2"
   }
 }
