@@ -1,8 +1,8 @@
 html {
-  font-size: 1em;
+  font-size: 1.1em;
 
   @media (--screen-md) {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 }
 
@@ -46,5 +46,17 @@ body {
     white-space: nowrap;
     padding-left: $padding-offset;
     padding-right: $padding-offset;
+  }
+}
+
+.postsList {
+  &--item {
+    & + & {
+      margin-top: $space-lg;
+
+      @media (--screen-md) {
+        margin-top: $space-xl;
+      }
+    }
   }
 }

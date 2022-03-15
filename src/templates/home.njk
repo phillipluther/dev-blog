@@ -2,5 +2,11 @@
 {% set isHome = true %}
 
 {% block main %}
-<h2 class="title-xl">This is the home page.</h2>
+<header class="home--header">
+  <h2 class="title-xl">This is the home page.</h2>
+</header>
+
+<section aria-label="Featured Posts" class="container">
+  {% include 'components/posts-list.njk' %}
+</section>
 {% endblock %}

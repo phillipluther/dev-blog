@@ -4,31 +4,6 @@
 <section class="container">
   <h1 class="pageTitle">All Blog Posts</h1>
 
-  <ul class="reset postList">
-    {% for post in posts %}
-    <li class="postList--item">
-      <article>
-        <header>
-          <h2 class="title-md">
-            <a href="/{{ post.metadata.slug }}">{{ post.title }}</a>
-          </h2>
-          <p><time>{{ post.metadata.date | date }}</time></p>
-          <p>
-            {{ post.content | wordcount | readtime }} minute read
-            <span>({{ post.content | wordcount }} words)</span>
-          </p>
-        </header>
-
-        <p>{{ post.metadata.description }}</p>
-        <p>
-          <a href="/{{ post.metadata.slug }}">
-            Continue Reading &raquo;
-            <span class="sr-only">{{ post.title }}</span>
-          </a>
-        </p>
-      </article>
-    </li>
-    {% endfor %}
-  </ul>
+  {% include 'components/posts-list.njk' %}
 </section>
 {% endblock %}
