@@ -21,6 +21,21 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  color: $color-accent-dark;
+
+  &:hover {
+    color: $color-accent-darker;
+    text-decoration: none;
+  }
+
+  .tactical-focus &:focus {
+    border-radius: 3px;
+    outline: 2px solid $color-accent-dark;
+    outline-offset: 1px;
+  }
+}
+
 /**
  *
  * ============================================
@@ -28,6 +43,11 @@ body {
  */
 .branding {
   margin: 0;
+  text-align: center;
+
+  &--link {
+    display: inline-block;
+  }
 
   &--logo {
     width: auto;
@@ -58,5 +78,16 @@ body {
         margin-top: $space-xl;
       }
     }
+  }
+}
+
+.home {
+  padding-top: 0 !important;
+
+  &--subtitle {
+    text-align: center;
+    font-size: $text-1;
+    margin: 0 auto $space-md;
+    color: $color-core-dark;
   }
 }

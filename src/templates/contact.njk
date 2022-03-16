@@ -1,5 +1,20 @@
 {% extends "./base.njk" %}
 
+{% set title = 'Contact Info | The Principled Engineer' %}
+
 {% block main %}
-<h1>Contact Info</h1>
+<div class="container">
+  <h1 class="title-md">Contact Info</h1>
+  <p>Questions? Comments? Something wonky? Let me know!</p>
+  <p>Because I'm old-fashioned, <a href="mailto:dev@phillipluther.com">email</a> is still the best way to get in touch with me (Phil, the blog's author). I also infrequently frequent <a href="https://twitter.com/phillipluther">Twitter</a> so a well placed at-mention works, too.</p>
+
+  <ul class="reset">
+    <li>
+      <p>By email: <a href="mailto:dev@phillipluther.com">dev@phillipluther.com</a></p>
+    </li>
+    <li>
+      <p>On Twitter: <a href="https://twitter.com/phillipluther">@phillipluther</a></p>
+    </li>
+  </ul>
+</div>
 {% endblock %}

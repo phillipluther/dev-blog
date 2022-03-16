@@ -44,7 +44,8 @@
   &-sm,
   &-md,
   &-lg,
-  &-xl {
+  &-xl,
+  &-block {
     font-family: $font-display;
     font-weight: 600;
     /* margin: 0 0 1em; */
@@ -99,6 +100,27 @@
   &-xl {
     font-size: $text-6;
   }
+
+  &-block {
+    display: inline-block;
+    position: relative;
+    font-size: $text-0;
+    padding-bottom: $space-sm;
+
+    @media (--screen-md) {
+      padding-bottom: $space-md;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 20%;
+      border-bottom: 2px solid $color-core-lighter;
+    }
+  }
 }
 
 .text {
@@ -116,6 +138,7 @@
   }
 
   &-16-9 {
+    display: block;
     height: 0;
     padding-bottom: 56.25%;
     width: 100%;

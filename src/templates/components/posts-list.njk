@@ -4,9 +4,9 @@
     <article>
       <header>
         {% if post.metadata.cover %}
-        <div class="image-wrapper-16-9">
+        <a href="/{{ post.metadata.slug }}" tabindex="-1" class="image-wrapper-16-9">
           <img src="/{{post.metadata.cover.placeholder}}" srcset="{{ post.metadata.cover.srcset }}" class="postsList--cover" alt="" aria-hidden loading="lazy" />
-        </div>
+        </a>
         {% endif %}
 
         <h2 class="title-md">

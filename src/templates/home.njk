@@ -1,12 +1,12 @@
 {% extends "./base.njk" %}
 {% set isHome = true %}
+{% set title = 'The Principled Engineer | Code Well. Code good.' %}
 
 {% block main %}
-<header class="home--header">
-  <h2 class="title-xl">This is the home page.</h2>
-</header>
+<div class="container home">
+  <p class="home--subtitle">Code well. Code good.</p>
 
-<section aria-label="Featured Posts" class="container">
+  <h2 class="title-block">Recent Posts</h2>
   {% include 'components/posts-list.njk' %}
-</section>
+</div>
 {% endblock %}
