@@ -5,7 +5,7 @@
       <header>
         {% if post.metadata.cover %}
         <div class="image-wrapper-16-9">
-          <img src="/{{post.metadata.slug}}/{{post.metadata.cover}}" class="postsList--cover" alt="" aria-hidden />
+          <img src="/{{post.metadata.cover.placeholder}}" srcset="{{ post.metadata.cover.srcset }}" class="postsList--cover" alt="" aria-hidden loading="lazy" />
         </div>
         {% endif %}
 
