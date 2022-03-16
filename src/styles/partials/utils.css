@@ -79,6 +79,10 @@
   &-lg,
   &-xl {
     line-height: 1.25;
+
+    @media (--screen-md) {
+      line-height: 1.15;
+    }
   }
 
   &-sm {
@@ -99,6 +103,10 @@
 
   &-xl {
     font-size: $text-6;
+
+    @media (--screen-md) {
+      font-size: $text-7;
+    }
   }
 
   &-block {

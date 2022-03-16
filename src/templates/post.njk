@@ -7,13 +7,18 @@
 {% block main %}
 <article class="post container">
   <header>
-    <h1>{{ title }}</h1>
-    <p>{{ metadata.description }}</p>
-    <p><time>{{ metadata.date | date }}</time></p>
-    <p>
+    <h1 class="title-xl post--title">{{ title }}</h1>
+    <p class="post--summary">{{ metadata.description }}</p>
+    <p class="post--meta">
+      <time>{{ metadata.date | date }}</time>
+      &nbsp;|&nbsp;
       {{ content | wordcount | readtime }} minute read
       <span>({{ content | wordcount }} words)</span>
     </p>
+
+    <div class="post--coverWrapper">
+      <img src="/{{metadata.cover.placeholder}}" srcset="{{ metadata.cover.srcset }}" class="post--cover" alt="" aria-hidden loading="lazy" />
+    </div>
   </header>
 
   <section>
