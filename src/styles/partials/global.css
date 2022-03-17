@@ -51,7 +51,11 @@ a {
 
   &--logo {
     width: auto;
-    height: 80px;
+    height: 64px;
+
+    @media (--screen-md) {
+      height: 80px;
+    }
   }
 }
 
