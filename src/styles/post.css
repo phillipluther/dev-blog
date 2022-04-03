@@ -2,6 +2,14 @@
 
 .post {
 
+  &--header {
+    max-width: 960px;
+  }
+
+  &--blurbs {
+    padding-top: 0;
+  }
+
   &--title {
     font-family: $font-display;
     font-size: $text-4;
@@ -21,7 +29,7 @@
     }
 
     &::before {
-      border-top: 2px groove $color-core-lighter;
+      border-top: 2px groove $color-core-lightest;
       margin: 0 auto $space-md;
 
       @media (--screen-md) {
@@ -30,7 +38,7 @@
     }
 
     &::after {
-      border-bottom: 2px ridge $color-core-lighter;
+      border-bottom: 2px solid $color-core-lighter;
       margin: $space-md auto 0;
 
       @media (--screen-md) {
@@ -65,12 +73,7 @@
 
   &--cover {
     width: 100%;
-    max-width: 960px;
     height: auto;
-
-    &Wrapper {
-      text-align: center;
-    }
   }
 
 
@@ -105,7 +108,11 @@
 
     p,
     li {
-      line-height: 1.6;
+      line-height: 1.618;
+
+      @media (--screen-md) {
+        line-height: 1.75;
+      }
     }
 
     blockquote {
