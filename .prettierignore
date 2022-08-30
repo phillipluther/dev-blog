@@ -1,2 +1,4 @@
-src/pages/*
-src/styles/*
+.cache
+package.json
+package-lock.json
+public

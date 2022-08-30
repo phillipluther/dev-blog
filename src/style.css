@@ -1,0 +1,39 @@
+:root {
+  --colorCore-100: #0a0a00;
+  --colorCore-200: #292919;
+  --colorCore-300: #474737;
+  --colorCore-400: #666656;
+  --colorCore-500: #858575;
+  --colorCore-600: #a2a292;
+  --colorCore-700: #c2c2b2;
+  --colorCore-800: #e0e0d0;
+  --colorCore-900: #ffffef;
+
+  --spacing-xs: 10px;
+  --spacing-sm: 16px;
+  --spacing-md: 26px;
+  --spacing-lg: 42px;
+  --spacing-xl: 68px;
+
+  --fontFamily-text: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --fontFamily-display: 'Catamaran', sans-serif;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--fontFamily-text);
+  font-size: 1rem;
+  color: var(--colorCore-200);
+}
