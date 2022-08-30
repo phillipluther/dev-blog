@@ -1,0 +1,60 @@
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6 {
+  font-family: var(--fontFamily-display);
+  margin-top: 1.563em;
+}
+
+.wrapper a {
+  text-decoration: underline;
+}
+
+.wrapper a:hover,
+.wrapper a:focus,
+.wrapper a:active {
+  text-decoration: none;
+}
+
+.standard {
+  font-size: var(--fontSize-base);
+}
+
+.standard h2,
+.standard h3,
+.standard h4,
+.standard h5,
+.standard h6,
+.standard p,
+.standard li,
+.standard ol,
+.standard ul {
+  margin-bottom: var(--fontSize-md);
+}
+
+.standard p,
+.standard li {
+  line-height: 1.563;
+}
+
+.finePrint {
+  font-size: var(--fontSize-sm);
+}
+
+.finePrint h2,
+.finePrint h3,
+.finePrint h4,
+.finePrint h5,
+.finePrint h6,
+.finePrint p,
+.finePrint li,
+.finePrint ol,
+.finePrint ul {
+  margin-bottom: var(--fontSize-base);
+}
+
+.finePrint p,
+.finePrint li {
+  line-height: 1.4;
+}

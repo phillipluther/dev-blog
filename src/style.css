@@ -1,29 +1,62 @@
 :root {
-  --colorCore-100: #0a0a00;
-  --colorCore-200: #292919;
-  --colorCore-300: #474737;
-  --colorCore-400: #666656;
-  --colorCore-500: #858575;
-  --colorCore-600: #a2a292;
-  --colorCore-700: #c2c2b2;
-  --colorCore-800: #e0e0d0;
-  --colorCore-900: #ffffef;
+  /**
+   * =============================================
+   * The Palette
+   * (proper noun)
+   */
+  --colorCore-darkest: #060a09;
+  --colorCore-darker: #2f3332;
+  --colorCore-dark: #585c5b;
+  --colorCore: #818584;
+  --colorCore-mid: #818584;
+  --colorCore-light: #a9adac;
+  --colorCore-lighter: #d2d6d5;
+  --colorCore-lightest: #fbfffe;
 
+  --colorAccent-darkest: #0b3100;
+  --colorAccent-darker: #2a501b;
+  --colorAccent-dark: #486e39;
+  --colorAccent: #678d58;
+  --colorAccent-mid: #678d58;
+  --colorAccent-light: #86ac77;
+  --colorAccent-lighter: #a4ca95;
+  --colorAccent-lightest: #c3e9b4;
+
+  /**
+   * =============================================
+   * Spatial accommodations
+   */
   --spacing-xs: 10px;
   --spacing-sm: 16px;
   --spacing-md: 26px;
   --spacing-lg: 42px;
   --spacing-xl: 68px;
 
+  /**
+   * =============================================
+   * Font/text stuff
+   */
   --fontFamily-text: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --fontFamily-display: 'Catamaran', sans-serif;
+
+  --fontSize-xs: 0.64rem;
+  --fontSize-sm: 0.8rem;
+  --fontSize-base: 1rem;
+  --fontSize-md: 1.25rem;
+  --fontSize-lg: 1.563rem;
+  --fontSize-xl: 1.954rem;
 }
 
 *,
 :after,
 :before {
   box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--colorCore-lightest);
 }
 
 html {
@@ -35,5 +68,16 @@ html {
 body {
   font-family: var(--fontFamily-text);
   font-size: 1rem;
-  color: var(--colorCore-200);
+  color: var(--colorCore-darker);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 1.1em;
+  }
 }

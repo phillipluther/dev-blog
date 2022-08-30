@@ -1,0 +1,4 @@
+.wrapper {
+  font-size: var(--fontSize-sm);
+  color: var(--colorCore-400);
+}

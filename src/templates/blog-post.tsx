@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
+import TextBlock from '../components/text-block';
 import Seo from '../components/seo';
 
 const BlogPostTemplate = ({
@@ -22,7 +23,7 @@ const BlogPostTemplate = ({
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.published}</p>
         </header>
-        <section
+        <TextBlock
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />

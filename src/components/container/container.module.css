@@ -4,17 +4,35 @@
 }
 
 .padTop {
-  @mixin pad top;
+  padding-top: var(--spacing-sm);
 }
 
 .padBottom {
-  @mixin pad bottom;
+  padding-bottom: var(--spacing-sm);
 }
 
 .padLeft {
-  @mixin pad left;
+  padding-left: var(--spacing-sm);
 }
 
 .padRight {
-  @mixin pad right;
+  padding-right: var(--spacing-sm);
+}
+
+@media screen and (min-width: 640px) {
+  .padTop {
+    padding-top: var(--spacing-md);
+  }
+
+  .padBottom {
+    padding-bottom: var(--spacing-md);
+  }
+
+  .padLeft {
+    padding-left: var(--spacing-md);
+  }
+
+  .padRight {
+    padding-right: var(--spacing-md);
+  }
 }

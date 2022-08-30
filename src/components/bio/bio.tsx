@@ -4,7 +4,7 @@ import Container from '../container';
 
 const Bio = () => {
   return (
-    <Container as="aside">
+    <Container as="aside" className="wrapper">
       <h2>About the Author</h2>
 
       <StaticImage
@@ -38,7 +38,7 @@ const Bio = () => {
         fluctuating on whether I'm a mountain person or an ocean person.
       </p>
 
-      <p className="text-sm text-brando-600">
+      <p>
         <sup>*</sup> I'm just over 40. Accounting for childhood and teenage
         buffoonery I'll translate "life long" to 20'ish years. Throwing that out
         for clarity.
