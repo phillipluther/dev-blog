@@ -30,7 +30,7 @@
 .standard li,
 .standard ol,
 .standard ul {
-  margin-bottom: var(--fontSize-md);
+  margin-bottom: var(--fontSize-base);
 }
 
 .standard p,

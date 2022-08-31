@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
+          sort: { fields: [frontmatter___published], order: ASC }
           limit: 1000
         ) {
           nodes {
@@ -100,8 +100,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       cover_credit: String
       cover_credit_link: String
       slug: String
-      tags: String[]
-      keywords: String[]
+      tags: [String]
+      keywords: [String]
       series: String
     }
 

@@ -4,6 +4,7 @@ import { DataProps } from '../global';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import PostSummary from '../components/post-summary';
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   const posts = data.allMarkdownRemark.nodes;
@@ -25,31 +26,17 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
       <ol>
         {posts.map((post) => {
           const title = post.frontmatter?.title || post.fields.slug;
+          const summaryProps = {
+            title,
+            excerpt: post.excerpt,
+            slug: post.fields.slug,
+            published: post.frontmatter?.published,
+            // image
+          };
 
           return (
             <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter?.published}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter?.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
+              <PostSummary {...summaryProps} />
             </li>
           );
         })}

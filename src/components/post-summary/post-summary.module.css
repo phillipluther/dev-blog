@@ -1,0 +1,11 @@
+.wrapper {
+}
+
+.title {
+  font-size: var(--fontSize-md);
+}
+
+.date {
+  font-size: var(--fontSize-sm);
+  color: var(--colorCore-dark);
+}
