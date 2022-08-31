@@ -94,11 +94,15 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Frontmatter {
       title: String
-      description: String
+      excerpt: String
       published: Date @dateformat
       cover_alt: String
       cover_credit: String
       cover_credit_link: String
+      slug: String
+      tags: String[]
+      keywords: String[]
+      series: String
     }
 
     type Fields {

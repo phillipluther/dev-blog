@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, PageProps } from 'gatsby';
+import { DataProps } from '../global';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
+const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   const posts = data.allMarkdownRemark.nodes;
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location}>
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -21,10 +21,10 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <ol>
         {posts.map((post) => {
-          const title = post.frontmatter.title || post.fields.slug;
+          const title = post.frontmatter?.title || post.fields.slug;
 
           return (
             <li key={post.fields.slug}>
@@ -39,12 +39,12 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>{post.frontmatter?.published}</small>
                 </header>
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.frontmatter?.description || post.excerpt,
                     }}
                     itemProp="description"
                   />
@@ -69,11 +69,6 @@ export const Head = () => <Seo title="All posts" />;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___published], order: DESC }
     ) {
@@ -85,7 +80,7 @@ export const pageQuery = graphql`
         frontmatter {
           published(formatString: "MMMM DD, YYYY")
           title
-          description
+          excerpt
         }
       }
     }
