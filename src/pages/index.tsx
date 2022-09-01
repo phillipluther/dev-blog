@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Link, graphql, PageProps } from 'gatsby';
-import { DataProps } from '../global';
-
+import { graphql, PageProps } from 'gatsby';
+import { DataProps } from '../global-types';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import PostSummary from '../components/post-summary';
+import PostList from '../components/post-list';
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   const posts = data.allMarkdownRemark.nodes;
@@ -12,46 +11,31 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   if (posts.length === 0) {
     return (
       <Layout location={location}>
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>No blog posts found.</p>
       </Layout>
     );
   }
 
   return (
     <Layout location={location}>
-      <ol>
-        {posts.map((post) => {
-          const title = post.frontmatter?.title || post.fields.slug;
-          const summaryProps = {
-            title,
-            excerpt: post.frontmatter?.summary || post.excerpt,
-            slug: post.fields.slug,
-            published: post.frontmatter?.published,
-            // image
-          };
-
-          return (
-            <li key={post.fields.slug}>
-              <PostSummary {...summaryProps} />
-            </li>
-          );
-        })}
-      </ol>
+      <PostList
+        title="All Posts"
+        postsData={posts.map(({ frontmatter, fields, excerpt }) => ({
+          slug: fields.slug,
+          summary: frontmatter?.summary || excerpt,
+          title: frontmatter?.title || 'Untitled',
+          published:
+            frontmatter?.published ||
+            "Can't remember when this was published …",
+          image: frontmatter?.cover,
+        }))}
+      />
     </Layout>
   );
 };
 
 export default BlogIndex;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="All posts" />;
 
 export const pageQuery = graphql`
@@ -68,6 +52,11 @@ export const pageQuery = graphql`
           published(formatString: "MMMM DD, YYYY")
           title
           summary
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 720)
+            }
+          }
         }
       }
     }

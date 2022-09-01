@@ -1,11 +1,14 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 export type PostType = {
   title: string;
   summary?: string;
   published: date;
+  cover?: IGatsbyImageData;
   cover_alt?: string;
   cover_credit?: string;
   cover_credit_link?: string;
-  slug?: string;
+  slug: string;
   tags?: string[];
   keywords?: string[];
   series?: string;

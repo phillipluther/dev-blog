@@ -2,6 +2,7 @@
 title: Hello World
 published: '2015-05-01T22:12:03.284Z'
 summary: 'Hello World'
+cover: 'salty_egg.jpg'
 ---
 
 This is my first post on my new fake blog! How exciting!

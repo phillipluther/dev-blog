@@ -2,3 +2,27 @@
   font-family: var(--fontFamily-display);
   font-weight: 900;
 }
+
+.xs {
+  font-size: var(--fontSize-xs);
+}
+
+.sm {
+  font-size: var(--fontSize-sm);
+}
+
+.md {
+  font-size: var(--fontSize-md);
+}
+
+.lg {
+  font-size: var(--fontSize-lg);
+}
+
+.xl {
+  font-size: var(--fontSize-xl);
+}
+
+.base {
+  font-size: var(--fontSize-base);
+}
