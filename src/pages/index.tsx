@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
           const title = post.frontmatter?.title || post.fields.slug;
           const summaryProps = {
             title,
-            excerpt: post.excerpt,
+            excerpt: post.frontmatter?.summary || post.excerpt,
             slug: post.fields.slug,
             published: post.frontmatter?.published,
             // image
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         frontmatter {
           published(formatString: "MMMM DD, YYYY")
           title
-          excerpt
+          summary
         }
       }
     }

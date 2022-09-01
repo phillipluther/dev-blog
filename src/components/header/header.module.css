@@ -1,11 +1,16 @@
 .wrapper {
-  background-color: var(--colorCore-darkest);
   color: var(--colorCore-lightest);
 }
 
 .title {
-  font-size: var(--fontSize-base);
-  text-transform: uppercase;
   margin: 0;
-  line-height: 1;
+  width: 75%;
+  max-width: 304px;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  margin-top: -4px;
+  margin-left: -4px;
 }

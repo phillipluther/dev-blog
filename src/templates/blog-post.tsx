@@ -13,7 +13,7 @@ const BlogPostTemplate = ({
   const siteTitle = site.siteMetadata?.title || `Title`;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <article
         className="blog-post"
         itemScope
@@ -66,7 +66,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
   return (
     <Seo
       title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
+      description={post.frontmatter.summary || post.excerpt}
     />
   );
 };
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         published(formatString: "MMMM DD, YYYY")
-        description
+        summary
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

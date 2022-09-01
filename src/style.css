@@ -13,14 +13,11 @@
   --colorCore-lighter: #d2d6d5;
   --colorCore-lightest: #fbfffe;
 
-  --colorAccent-darkest: #0b3100;
-  --colorAccent-darker: #2a501b;
-  --colorAccent-dark: #486e39;
-  --colorAccent: #678d58;
-  --colorAccent-mid: #678d58;
-  --colorAccent-light: #86ac77;
-  --colorAccent-lighter: #a4ca95;
-  --colorAccent-lightest: #c3e9b4;
+  --colorAccent1: #612929;
+  --colorAccent2: #89396e;
+  --colorAccent3: #29613a;
+  --colorAccent4: #394689;
+  --colorAccent5: #5d5827;
 
   /**
    * =============================================

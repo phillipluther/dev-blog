@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
 import Container from '../container';
-import DisplayFont from '../display-font';
+import Logo from '../../images/frontend-engineering-blog-logo.inline.svg';
 import * as styles from './header.module.css';
 
 export type HeaderProps = {
@@ -23,11 +22,14 @@ const Header = ({ isHome = false, className, ...props }: HeaderProps) => {
     `,
   );
 
+  const TitleTag = isHome ? 'h1' : 'p';
   return (
     <Container as="header" className={styles.wrapper} {...props}>
-      <DisplayFont as={isHome ? 'h1' : 'p'} className={styles.title}>
-        <Link to="/">{site.siteMetadata.title}</Link>
-      </DisplayFont>
+      <TitleTag className={styles.title}>
+        <Link to="/">
+          <Logo className={styles.logo} />
+        </Link>
+      </TitleTag>
     </Container>
   );
 };
