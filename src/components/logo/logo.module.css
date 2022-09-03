@@ -1,0 +1,111 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--fontFamily-display);
+  text-transform: uppercase;
+  color: var(--colorCore-lightest);
+}
+
+.p,
+.l,
+.fe,
+.eng,
+.blog {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  margin: 8px;
+  line-height: 0.75;
+}
+
+.p::after,
+.l::after,
+.fe::after,
+.eng::after,
+.blog::after {
+  content: '';
+  position: absolute;
+  background: black;
+  z-index: -1;
+}
+
+.p {
+  left: -3px;
+}
+
+.p::after {
+  top: -9px;
+  right: -8px;
+  bottom: -5px;
+  left: -6px;
+  background: var(--colorAccent1);
+}
+
+.l {
+  left: -5px;
+}
+
+.l::after {
+  top: -9px;
+  right: -8px;
+  bottom: -5px;
+  left: -6px;
+  background: var(--colorAccent3);
+}
+
+.blog {
+  left: -5px;
+  bottom: 9px;
+}
+
+.blog::after {
+  top: -10px;
+  right: -6px;
+  bottom: -3px;
+  left: -4px;
+  background: var(--colorAccent2);
+}
+
+.fe {
+  bottom: 1px;
+}
+
+.fe::after {
+  /* top: -2px;
+  right: 2px;
+  bottom: 6px;
+  left: 5px; */
+  top: -10px;
+  right: -6px;
+  bottom: -2px;
+  left: -3px;
+  background: var(--colorAccent4);
+}
+
+.eng {
+  bottom: 5px;
+}
+
+.eng::after {
+  top: -10px;
+  right: -6px;
+  bottom: -2px;
+  left: -3px;
+  background: var(--colorAccent5);
+}
+
+.p,
+.l {
+  font-size: 32px;
+}
+
+.blog {
+  font-size: 64px;
+  margin-bottom: -7px;
+}
+
+.fe,
+.eng {
+  font-size: 72px;
+  left: -6px;
+}

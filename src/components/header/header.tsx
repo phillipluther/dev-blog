@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Container from '../container';
-import Logo from '../../images/frontend-engineering-blog-logo.inline.svg';
+import Logo from '../logo';
 import * as styles from './header.module.css';
 
 export type HeaderProps = {
@@ -27,7 +27,7 @@ const Header = ({ isHome = false, className, ...props }: HeaderProps) => {
     <Container as="header" className={styles.wrapper} {...props}>
       <TitleTag className={styles.title}>
         <Link to="/">
-          <Logo className={styles.logo} />
+          <Logo />
         </Link>
       </TitleTag>
     </Container>
