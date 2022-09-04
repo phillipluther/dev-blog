@@ -27,7 +27,7 @@ const Header = ({ isHome = false, className, ...props }: HeaderProps) => {
     <Container as="header" className={styles.wrapper} {...props}>
       <TitleTag className={styles.title}>
         <Link to="/">
-          <Logo />
+          <Logo className={styles.logo} />
         </Link>
       </TitleTag>
     </Container>
