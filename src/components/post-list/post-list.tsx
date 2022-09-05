@@ -1,27 +1,25 @@
 import React from 'react';
+import classnames from 'classnames';
 import PostSummary from '../post-summary';
 import { PostType } from '../../global-types';
 import * as styles from './post-list.module.css';
 
 export type PostListProps = {
-  title: string;
   postsData: PostType[];
-  headingLevel?: 'h2' | 'h3' | 'h4' | 'h5';
+  className?: string;
 };
 
-function PostList({ postsData }: PostListProps) {
+function PostList({ postsData, className, ...props }: PostListProps) {
   return (
-    <section>
-      <ul>
-        {postsData.map((postData) => {
-          return (
-            <li key={postData.slug} className={styles.item}>
-              <PostSummary {...postData} />
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+    <ul className={classnames(styles.wrapper, className)} {...props}>
+      {postsData.map((postData) => {
+        return (
+          <li key={postData.slug} className={styles.item}>
+            <PostSummary {...postData} />
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 

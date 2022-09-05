@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import classnames from 'classnames';
+import { FaChevronCircleRight } from 'react-icons/fa';
 import DisplayFont from '../display-font';
 import { PostType } from '../../global-types';
 import TextBlock from '../text-block';
@@ -33,9 +34,19 @@ const PostSummary = ({
         <DisplayFont as={headingLevel} size="md" className={styles.title}>
           <Link to={slug}>{title}</Link>
         </DisplayFont>
+
         <p className={styles.date}>{published}</p>
+
         <Link to={slug} tabIndex={-1} className={styles.image}>
-          {coverImage && <GatsbyImage image={coverImage} alt="" aria-hidden />}
+          {coverImage && (
+            <GatsbyImage
+              className={styles.centerer}
+              image={coverImage}
+              alt=""
+              aria-hidden
+            />
+          )}
+          <VisuallyHidden elementType="span">{title}</VisuallyHidden>
         </Link>
       </header>
 
@@ -44,8 +55,9 @@ const PostSummary = ({
       </section>
 
       <footer className={styles.footer}>
-        <Link to={slug}>
-          Read More
+        <Link to={slug} className={styles.readMore}>
+          <DisplayFont as="span">Read More</DisplayFont>
+          <FaChevronCircleRight className={styles.icon} />
           <VisuallyHidden elementType="span">: {title}</VisuallyHidden>
         </Link>
       </footer>
