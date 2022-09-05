@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
-
+import { Link, graphql, PageProps } from 'gatsby';
+import { PostDataProps } from '../global-types';
+import PageHeader from '../components/page-header';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import TextBlock from '../components/text-block';
@@ -9,8 +10,8 @@ import Seo from '../components/seo';
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
-}) => {
-  const siteTitle = site.siteMetadata?.title || `Title`;
+}: PageProps<PostDataProps>) => {
+  const siteTitle = site?.siteMetadata?.title || `Title`;
 
   return (
     <Layout location={location}>
@@ -19,10 +20,12 @@ const BlogPostTemplate = ({
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.published}</p>
-        </header>
+        <PageHeader
+          title={post.frontmatter?.title || siteTitle}
+          published={post.frontmatter?.published}
+          summary={post.frontmatter?.summary || post.excerpt}
+          image={post.frontmatter?.cover}
+        />
         <TextBlock
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -62,11 +65,15 @@ const BlogPostTemplate = ({
   );
 };
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head = ({
+  data: { markdownRemark: post },
+}: {
+  data: { markdownRemark: PostDataProps['markdownRemark'] };
+}) => {
   return (
     <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.summary || post.excerpt}
+      title={post.frontmatter?.title || 'Title'}
+      description={post.frontmatter?.summary || post.excerpt}
     />
   );
 };
@@ -92,6 +99,11 @@ export const pageQuery = graphql`
         title
         published(formatString: "MMMM DD, YYYY")
         summary
+        cover {
+          childImageSharp {
+            gatsbyImageData(width: 720, aspectRatio: 1.6, placeholder: BLURRED)
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

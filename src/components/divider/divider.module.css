@@ -1,0 +1,25 @@
+.divider {
+  width: 50%;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    var(--colorAccent1) 0%,
+    var(--colorAccent1) 20%,
+    var(--colorAccent3) 20%,
+    var(--colorAccent3) 40%,
+    var(--colorAccent4) 40%,
+    var(--colorAccent4) 60%,
+    var(--colorAccent5) 60%,
+    var(--colorAccent5) 80%,
+    var(--colorAccent2) 80%,
+    var(--colorAccent2) 100%
+  );
+  margin: var(--spacing-md) auto;
+  border-top: 2px solid transparent;
+}
+
+@media (min-width: 640px) {
+  .divider {
+    margin: var(--spacing-lg) auto;
+  }
+}

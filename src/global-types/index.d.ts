@@ -8,22 +8,24 @@ export type PostType = {
   cover_alt?: string;
   cover_credit?: string;
   cover_credit_link?: string;
-  slug: string;
+  slug?: string;
   tags?: string[];
   keywords?: string[];
   series?: string;
 };
 
+export type SiteMetadataProps = {
+  title?: string;
+  author?: string;
+  description?: string;
+  siteUrl?: string;
+};
+
 export type DataProps = {
   site?: {
-    siteMetadata?: {
-      title?: string;
-      author?: string;
-      description?: string;
-      siteUrl?: string;
-    };
+    siteMetadata?: SiteMetadataProps;
   };
-  allMarkdownRemark: {
+  allMarkdownRemark?: {
     nodes: {
       frontmatter?: PostType;
       fields: {
@@ -33,4 +35,27 @@ export type DataProps = {
     }[];
     [key: string]: unknown;
   };
+};
+
+export type SuggestedPostDataProps = {
+  fields: {
+    slug: string;
+  };
+  frontmatter: {
+    title: string;
+  };
+};
+
+export type PostDataProps = {
+  site: {
+    siteMetadata?: SiteMetadataProps;
+  };
+  markdownRemark: {
+    id: string;
+    excerpt: string;
+    html: string;
+    frontmatter?: PostType;
+  };
+  previous: SuggestedPostDataProps;
+  next: SuggestedPostDataProps;
 };

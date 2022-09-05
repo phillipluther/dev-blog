@@ -7,7 +7,7 @@ import Seo from '../components/seo';
 import PostList from '../components/post-list';
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.allMarkdownRemark?.nodes || [];
 
   if (posts.length === 0) {
     return (
