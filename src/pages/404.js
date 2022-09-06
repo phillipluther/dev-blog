@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
-
+import { Link, graphql } from 'gatsby';
+import PageHeader from '../components/page-header';
 import Layout from '../components/layout';
+import TextBlock from '../components/text-block';
 import Seo from '../components/seo';
 
 const NotFoundPage = ({ data, location }) => {
@@ -9,8 +10,24 @@ const NotFoundPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist ... the sadness.</p>
+      <PageHeader
+        title="Page Not Found"
+        summary="The page you were looking for doesn't exist. Or … more accurately, it doesn't exist here."
+      />
+
+      <TextBlock>
+        <p>
+          Double-check the link you used to get here and see if it looks
+          correct, then try again. You could also try jumping back to the blog's{' '}
+          <Link to="/">home page</Link> and getting back on track from there.
+        </p>
+
+        <p>
+          If you feel like you reached this page in error and something's truly
+          borked, please <a href="mailto:dev@phillipluther.com">contact me</a>{' '}
+          and let me know.
+        </p>
+      </TextBlock>
     </Layout>
   );
 };

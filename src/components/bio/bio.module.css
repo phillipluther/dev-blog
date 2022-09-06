@@ -18,8 +18,8 @@
 
 @media (min-width: 640px) {
   .avatar {
-    width: 160px;
-    height: 160px;
+    width: 144px;
+    height: 144px;
 
     margin-right: var(--spacing-md);
     margin-bottom: var(--spacing-md);

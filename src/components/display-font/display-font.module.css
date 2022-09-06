@@ -4,25 +4,25 @@
 }
 
 .xs {
-  font-size: var(--fontSize-xs);
+  font-size: var(--fontSize-xs) !important;
 }
 
 .sm {
-  font-size: var(--fontSize-sm);
+  font-size: var(--fontSize-sm) !important;
 }
 
 .md {
-  font-size: var(--fontSize-md);
+  font-size: var(--fontSize-md) !important;
 }
 
 .lg {
-  font-size: var(--fontSize-lg);
+  font-size: var(--fontSize-lg) !important;
 }
 
 .xl {
-  font-size: var(--fontSize-xl);
+  font-size: var(--fontSize-xl) !important;
 }
 
 .base {
-  font-size: var(--fontSize-base);
+  font-size: var(--fontSize-base) !important;
 }
