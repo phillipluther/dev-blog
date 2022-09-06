@@ -1,3 +1,4 @@
 .wrapper {
-  color: var(--colorCore-400);
+  background: var(--colorCore-darker);
+  color: var(--colorCore-lightest);
 }
