@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+
 import * as styles from './logo.module.css';
 
 export type LogoProps = {

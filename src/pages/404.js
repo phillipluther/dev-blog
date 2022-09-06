@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-import PageHeader from '../components/page-header';
+
 import Layout from '../components/layout';
-import TextBlock from '../components/text-block';
+import PageHeader from '../components/page-header';
 import Seo from '../components/seo';
+import TextBlock from '../components/text-block';
 
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { PageProps } from 'gatsby';
+
 import Container from '../container';
-import Header from '../header';
 import Footer from '../footer';
+import Header from '../header';
+
 import * as styles from './layout.module.css';
 
 export type LayoutProps = {

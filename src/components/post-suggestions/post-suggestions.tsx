@@ -3,7 +3,9 @@ import classnames from 'classnames';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { SuggestedPostDataProps } from '../../global-types';
+
 import DisplayFont from '../display-font';
+
 import * as styles from './post-suggestions.module.css';
 
 export type PostSuggestionsProps = {
@@ -39,14 +41,7 @@ const PostSuggestions = ({
               </Link>
 
               <Link to={slug} className={styles.imageWrapper}>
-                {image && (
-                  <GatsbyImage
-                    className={styles.image}
-                    image={image}
-                    alt=""
-                    aria-hidden
-                  />
-                )}
+                {image && <GatsbyImage image={image} alt="" aria-hidden />}
               </Link>
             </li>
           );

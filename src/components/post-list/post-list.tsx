@@ -1,7 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import PostSummary from '../post-summary';
 import { PostType } from '../../global-types';
+
+import PostSummary from '../post-summary';
+
 import * as styles from './post-list.module.css';
 
 export type PostListProps = {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
+
 import Container from '../container';
 import TextBlock from '../text-block';
+
 import * as styles from './footer.module.css';
 
 const Footer = () => (

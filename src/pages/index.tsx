@@ -2,9 +2,10 @@ import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { DataProps } from '../global-types';
+
 import Layout from '../components/layout';
-import Seo from '../components/seo';
 import PostList from '../components/post-list';
+import Seo from '../components/seo';
 
 const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
   const posts = data.allMarkdownRemark?.nodes || [];

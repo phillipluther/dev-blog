@@ -4,9 +4,11 @@ import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import classnames from 'classnames';
 import { FaChevronCircleRight } from 'react-icons/fa';
-import DisplayFont from '../display-font';
 import { PostType } from '../../global-types';
+
+import DisplayFont from '../display-font';
 import TextBlock from '../text-block';
+
 import * as styles from './post-summary.module.css';
 
 export type PostSummaryProps = PostType & {

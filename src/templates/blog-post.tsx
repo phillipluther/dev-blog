@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { Link, graphql, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { PostDataProps } from '../global-types';
-import PageHeader from '../components/page-header';
-import Bio from '../components/bio';
+
 import Layout from '../components/layout';
-import TextBlock from '../components/text-block';
-import Divider from '../components/divider';
-import Seo from '../components/seo';
+import PageHeader from '../components/page-header';
 import PostSuggestions from '../components/post-suggestions';
+import Seo from '../components/seo';
+import TextBlock from '../components/text-block';
+import Bio from '../components/bio';
+import Divider from '../components/divider';
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },

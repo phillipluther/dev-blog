@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import Container from '../container';
+
 import DisplayFont from '../display-font';
 import TextBlock from '../text-block';
+
 import * as styles from './bio.module.css';
 
 const Bio = () => {
