@@ -13,6 +13,7 @@
 
 .finePrint {
   font-size: var(--fontSize-sm);
+  font-style: italic;
   color: var(--colorCore-dark);
 }
 

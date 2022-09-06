@@ -38,11 +38,14 @@ export type DataProps = {
 };
 
 export type SuggestedPostDataProps = {
+  previous?: boolean;
+  next?: boolean;
   fields: {
     slug: string;
   };
   frontmatter: {
     title: string;
+    cover?: IGatsbyImageData;
   };
 };
 

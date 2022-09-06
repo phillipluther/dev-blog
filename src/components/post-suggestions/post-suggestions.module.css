@@ -1,0 +1,86 @@
+:root {
+  --postSuggestionImageWidth-sm: 88px;
+  --postSuggestionImageWidth-md: 136px;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  min-height: 55px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.link {
+  display: block;
+  line-height: 1.25;
+  position: relative;
+  margin-top: 4px;
+}
+
+.link:hover,
+.link:focus-visible {
+  text-decoration: underline;
+}
+
+.previous,
+.next {
+  text-align: left;
+  padding-left: calc(var(--postSuggestionImageWidth-sm) + var(--spacing-sm));
+}
+
+.previous::before {
+  content: 'Previous Post';
+}
+
+.next::before {
+  content: 'Next Post';
+}
+
+.previous::before,
+.next::before {
+  display: block;
+  font-size: var(--fontSize-sm);
+  font-weight: bold;
+  font-style: italic;
+  color: var(--colorCore-mid);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 640px) {
+  .item {
+    margin-bottom: 0;
+  }
+
+  .next {
+    text-align: right;
+    padding-left: 0;
+    padding-right: calc(var(--postSuggestionImageWidth-sm) + var(--spacing-sm));
+  }
+
+  .previous,
+  .next {
+    width: 50%;
+  }
+
+  .previous .imageWrapper {
+    left: 0;
+  }
+
+  .right .imageWrapper {
+    left: 0;
+  }
+}
