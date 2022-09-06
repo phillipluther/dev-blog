@@ -1,5 +1,4 @@
 .divider {
-  width: 50%;
   height: 8px;
   background: linear-gradient(
     to right,
@@ -14,12 +13,15 @@
     var(--colorAccent2) 80%,
     var(--colorAccent2) 100%
   );
-  margin: var(--spacing-md) auto;
+  margin: var(--spacing-lg) 0;
   border-top: 2px solid transparent;
 }
 
-@media (min-width: 640px) {
-  .divider {
-    margin: var(--spacing-lg) auto;
-  }
+.divider:not(.fullWidth) {
+  width: 50%;
+  max-width: 240px;
+}
+
+.fullWidth {
+  width: 100%;
 }

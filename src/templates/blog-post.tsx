@@ -5,6 +5,7 @@ import PageHeader from '../components/page-header';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import TextBlock from '../components/text-block';
+import Divider from '../components/divider';
 import Seo from '../components/seo';
 
 const BlogPostTemplate = ({
@@ -30,7 +31,8 @@ const BlogPostTemplate = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+        <Divider />
+
         <footer>
           <Bio />
         </footer>

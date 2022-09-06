@@ -1,4 +1,27 @@
 .wrapper {
+  /* font-size: var(--fontSize-sm); */
+  /* color: var(--colorCore-dark); */
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  float: left;
+  margin-right: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.finePrint {
   font-size: var(--fontSize-sm);
-  color: var(--colorCore-400);
+  color: var(--colorCore-dark);
+}
+
+@media (min-width: 640px) {
+  .avatar {
+    width: 160px;
+    height: 160px;
+
+    margin-right: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
 }
