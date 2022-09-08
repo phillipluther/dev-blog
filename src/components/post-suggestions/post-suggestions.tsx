@@ -34,7 +34,7 @@ const PostSuggestions = ({
                 [styles.next]: next,
               })}
             >
-              <Link to={slug} className={styles.link}>
+              <Link to={`/blog/${slug}`} className={styles.link}>
                 <DisplayFont as="span">
                   {frontmatter?.title || 'What to read next? Try this one'}
                 </DisplayFont>

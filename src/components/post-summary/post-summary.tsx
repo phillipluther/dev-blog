@@ -29,17 +29,18 @@ const PostSummary = ({
   className,
 }: PostSummaryProps) => {
   const coverImage = image ? getImage(image) : null;
+  const postPath = `/blog/${slug}`;
 
   return (
     <TextBlock as="article" className={classnames(styles.wrapper, className)}>
       <header className={styles.header}>
         <DisplayFont as={headingLevel} size="md" className={styles.title}>
-          <Link to={slug}>{title}</Link>
+          <Link to={postPath}>{title}</Link>
         </DisplayFont>
 
         <p className={styles.date}>{published}</p>
 
-        <Link to={slug} tabIndex={-1} className={styles.image}>
+        <Link to={postPath} tabIndex={-1} className={styles.image}>
           {coverImage && (
             <GatsbyImage
               className={styles.centerer}
@@ -57,7 +58,7 @@ const PostSummary = ({
       </section>
 
       <footer className={styles.footer}>
-        <Link to={slug} className={styles.readMore}>
+        <Link to={postPath} className={styles.readMore}>
           <DisplayFont as="span">Read More</DisplayFont>
           <FaChevronCircleRight className={styles.icon} />
           <VisuallyHidden elementType="span">: {title}</VisuallyHidden>

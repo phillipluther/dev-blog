@@ -55,20 +55,49 @@
   text-decoration: none;
 }
 
-.standard {
-  font-size: var(--fontSize-base);
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6,
+.wrapper p,
+.wrapper li,
+.wrapper ol,
+.wrapper ul,
+.wrapper :global(.gatsby-highlight),
+.wrapper table {
+  margin-bottom: var(--fontSize-base);
 }
 
-.standard h2,
-.standard h3,
-.standard h4,
-.standard h5,
-.standard h6,
-.standard p,
-.standard li,
-.standard ol,
-.standard ul {
-  margin-bottom: var(--fontSize-base);
+.wrapper th {
+  background: var(--colorCore-darker);
+  color: var(--colorCore-lightest);
+  text-align: left;
+  border-right: 1px solid var(--colorCore-dark);
+}
+
+.wrapper th,
+.wrapper td {
+  padding: var(--spacing-sm);
+  border-right: 1px solid var(--colorCore-lighter);
+  border-bottom: 1px solid var(--colorCore-lighter);
+}
+
+.wrapper tbody {
+  border-left: 1px solid var(--colorCore-lighter);
+}
+
+.wrapper code:not([class*='language-']) {
+  font-family: monospace;
+  background: var(--colorCore-slightlyLighter);
+  color: var(--colorCore-darkest);
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.standard {
+  font-size: var(--fontSize-base);
 }
 
 .standard p,
@@ -78,18 +107,6 @@
 
 .finePrint {
   font-size: var(--fontSize-sm);
-}
-
-.finePrint h2,
-.finePrint h3,
-.finePrint h4,
-.finePrint h5,
-.finePrint h6,
-.finePrint p,
-.finePrint li,
-.finePrint ol,
-.finePrint ul {
-  margin-bottom: var(--fontSize-base);
 }
 
 .finePrint p,

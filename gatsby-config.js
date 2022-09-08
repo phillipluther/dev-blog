@@ -1,7 +1,3 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
 module.exports = {
   siteMetadata: {
     title: "Phillip Luther's Frontend Engineering Blog",
@@ -14,11 +10,10 @@ module.exports = {
     `gatsby-plugin-image`,
     'gatsby-plugin-dts-css-modules',
     {
-      resolve: 'gatsby-source-git',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'dev-blog-content',
-        remote: `https://phillipluther:${process.env.DEV_BLOG_CONTENT_TOKEN}@github.com/phillipluther/dev-blog-content.git`,
-        branch: 'main',
+        path: `${__dirname}/content`,
+        name: `blog`,
       },
     },
     {
@@ -46,7 +41,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              noInlineHighlight: true,
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
