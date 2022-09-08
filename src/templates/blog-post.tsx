@@ -41,7 +41,7 @@ const BlogPostTemplate = ({
         <PageHeader
           title={post.frontmatter?.title || siteTitle}
           published={post.frontmatter?.published}
-          summary={post.excerpt}
+          summary={post.frontmatter?.summary || post.excerpt}
           image={post.frontmatter?.cover}
         />
         <TextBlock
@@ -70,7 +70,7 @@ export const Head = ({
   return (
     <Seo
       title={post.frontmatter?.title || 'Title'}
-      description={post.excerpt}
+      description={post.frontmatter?.summary || post.excerpt}
     />
   );
 };
@@ -95,6 +95,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         published(formatString: "MMMM DD, YYYY")
+        summary
         cover {
           childImageSharp {
             gatsbyImageData(width: 720, aspectRatio: 1.6, placeholder: BLURRED)

@@ -10,6 +10,7 @@
     "@fontsource/merriweather": "^4.5.13",
     "@react-aria/visually-hidden": "^3.4.1",
     "classnames": "^2.3.1",
+    "dotenv": "^16.0.2",
     "gatsby": "^4.21.1",
     "gatsby-plugin-dts-css-modules": "^3.0.0",
     "gatsby-plugin-feed": "^4.21.0",
@@ -30,6 +31,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
+    "remark-html": "^15.0.1",
     "reset.css": "^2.0.2"
   },
   "devDependencies": {

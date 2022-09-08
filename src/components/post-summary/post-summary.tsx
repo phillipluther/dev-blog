@@ -8,6 +8,7 @@ import { PostType } from '../../global-types';
 
 import DisplayFont from '../display-font';
 import TextBlock from '../text-block';
+import Markdowner from '../markdowner';
 
 import * as styles from './post-summary.module.css';
 
@@ -54,7 +55,7 @@ const PostSummary = ({
       </header>
 
       <section>
-        <p>{summary}</p>
+        <Markdowner as="p" markdown={summary} />
       </section>
 
       <footer className={styles.footer}>

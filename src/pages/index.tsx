@@ -26,7 +26,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
         <PostList
           postsData={posts.map(({ frontmatter, fields, excerpt }) => ({
             slug: fields.slug,
-            summary: excerpt,
+            summary: frontmatter?.summary || excerpt,
             title: frontmatter?.title || 'Untitled',
             published:
               frontmatter?.published ||
@@ -56,6 +56,7 @@ export const pageQuery = graphql`
         frontmatter {
           published(formatString: "MMMM DD, YYYY")
           title
+          summary
           cover {
             childImageSharp {
               gatsbyImageData(
