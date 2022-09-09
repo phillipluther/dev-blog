@@ -51,9 +51,12 @@ const BlogPostTemplate = ({
         <Divider />
 
         <footer>
-          <PostSuggestions posts={suggestedPosts} />
-
-          <Divider />
+          {suggestedPosts.length > 0 && (
+            <>
+              <PostSuggestions posts={suggestedPosts} />
+              <Divider />
+            </>
+          )}
 
           <Bio />
         </footer>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { DataProps } from '../global-types';
+import filterDraftPosts from '../../lib/filter-draft-posts';
 
 import Layout from '../components/layout';
 import PostList from '../components/post-list';
@@ -24,15 +25,17 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
         <VisuallyHidden elementType="h2">All Posts</VisuallyHidden>
 
         <PostList
-          postsData={posts.map(({ frontmatter, fields, excerpt }) => ({
-            slug: fields.slug,
-            summary: frontmatter?.summary || excerpt,
-            title: frontmatter?.title || 'Untitled',
-            published:
-              frontmatter?.published ||
-              "Can't remember when this was published …",
-            image: frontmatter?.cover,
-          }))}
+          postsData={filterDraftPosts(posts).map(
+            ({ frontmatter, fields, excerpt }) => ({
+              slug: fields.slug,
+              summary: frontmatter?.summary || excerpt,
+              title: frontmatter?.title || 'Untitled',
+              published:
+                frontmatter?.published ||
+                "Can't remember when this was published …",
+              image: frontmatter?.cover,
+            }),
+          )}
         />
       </section>
     </Layout>
@@ -63,7 +66,6 @@ export const pageQuery = graphql`
                 width: 320
                 aspectRatio: 1.6
                 placeholder: BLURRED
-                layout: FIXED
               )
             }
           }

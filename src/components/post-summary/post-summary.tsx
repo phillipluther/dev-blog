@@ -8,7 +8,6 @@ import { PostType } from '../../global-types';
 
 import DisplayFont from '../display-font';
 import TextBlock from '../text-block';
-import Markdowner from '../markdowner';
 
 import * as styles from './post-summary.module.css';
 
@@ -44,7 +43,7 @@ const PostSummary = ({
         <Link to={postPath} tabIndex={-1} className={styles.image}>
           {coverImage && (
             <GatsbyImage
-              className={styles.centerer}
+              // className={styles.centerer}
               image={coverImage}
               alt=""
               aria-hidden
@@ -55,7 +54,7 @@ const PostSummary = ({
       </header>
 
       <section>
-        <Markdowner as="p" markdown={summary} />
+        <p>{summary}</p>
       </section>
 
       <footer className={styles.footer}>

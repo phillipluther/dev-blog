@@ -5,7 +5,6 @@ import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import DisplayFont from '../display-font';
 import Divider from '../divider';
 import TextBlock from '../text-block';
-import Markdowner from '../markdowner';
 
 import * as styles from './page-header.module.css';
 
@@ -41,9 +40,7 @@ const PageHeader = ({
 
       {published && <p className={styles.published}>{published}</p>}
 
-      {summary && (
-        <Markdowner as="p" markdown={summary} className={styles.summary} />
-      )}
+      {summary && <p className={styles.summary}>{summary}</p>}
 
       {coverImage && (
         <GatsbyImage

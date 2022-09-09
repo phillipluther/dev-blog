@@ -21,18 +21,21 @@ export type SiteMetadataProps = {
   siteUrl?: string;
 };
 
+export type MarkdownRemarkNodeProps = {
+  id?: string;
+  frontmatter?: PostType;
+  fields: {
+    slug: string;
+  };
+  excerpt: string;
+};
+
 export type DataProps = {
   site?: {
     siteMetadata?: SiteMetadataProps;
   };
   allMarkdownRemark?: {
-    nodes: {
-      frontmatter?: PostType;
-      fields: {
-        slug: string;
-      };
-      excerpt: string;
-    }[];
+    nodes: MarkdownRemarkNodeProps[];
     [key: string]: unknown;
   };
 };

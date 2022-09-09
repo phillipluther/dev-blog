@@ -1,7 +1,8 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+import path from 'path';
+import { createFilePath } from 'gatsby-source-filesystem';
+import filterDraftPosts from './lib/filter-draft-posts';
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   // Define a template for blog post
@@ -20,6 +21,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              published
+              summary
+            }
           }
         }
       }
@@ -34,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.nodes;
+  const posts = filterDraftPosts(result.data.allMarkdownRemark.nodes);
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
@@ -55,7 +60,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   const slug = node.frontmatter?.slug;
 
@@ -67,10 +72,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     });
+
+    if (node.frontmatter.summary) {
+      // make an HTML version (processed markdown)
+    }
   }
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   createTypes(`
@@ -101,6 +110,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug: String
+      summaryHtml: String
     }
   `);
 };
