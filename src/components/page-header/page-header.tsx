@@ -40,7 +40,12 @@ const PageHeader = ({
 
       {published && <p className={styles.published}>{published}</p>}
 
-      {summary && <p className={styles.summary}>{summary}</p>}
+      {summary && (
+        <p
+          className={styles.summary}
+          dangerouslySetInnerHTML={{ __html: summary }}
+        />
+      )}
 
       {coverImage && (
         <GatsbyImage

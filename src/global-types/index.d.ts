@@ -26,6 +26,7 @@ export type MarkdownRemarkNodeProps = {
   frontmatter?: PostType;
   fields: {
     slug: string;
+    summaryHtml: string;
   };
   excerpt: string;
 };
@@ -45,6 +46,7 @@ export type SuggestedPostDataProps = {
   next?: boolean;
   fields: {
     slug: string;
+    summaryHtml?: string;
   };
   frontmatter: {
     title: string;

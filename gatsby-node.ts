@@ -1,6 +1,11 @@
 import path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import filterDraftPosts from './lib/filter-draft-posts';
+/**
+ * dunno if it's just me, but i found remark-html a complete pain-in-the-ass
+ * to use; sidestepped the whole thing
+ */
+import { marked } from 'marked';
 
 export const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -75,6 +80,11 @@ export const onCreateNode = ({ node, actions, getNode }) => {
 
     if (node.frontmatter.summary) {
       // make an HTML version (processed markdown)
+      createNodeField({
+        name: 'summaryHtml',
+        node,
+        value: marked.parse(node.frontmatter.summary),
+      });
     }
   }
 };

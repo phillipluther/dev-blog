@@ -54,7 +54,7 @@ const PostSummary = ({
       </header>
 
       <section>
-        <p>{summary}</p>
+        <p dangerouslySetInnerHTML={{ __html: summary }} />
       </section>
 
       <footer className={styles.footer}>

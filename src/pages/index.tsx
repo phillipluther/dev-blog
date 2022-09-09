@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }: PageProps<DataProps>) => {
           postsData={filterDraftPosts(posts).map(
             ({ frontmatter, fields, excerpt }) => ({
               slug: fields.slug,
-              summary: frontmatter?.summary || excerpt,
+              summary: fields.summaryHtml || excerpt,
               title: frontmatter?.title || 'Untitled',
               published:
                 frontmatter?.published ||
@@ -55,6 +55,7 @@ export const pageQuery = graphql`
         excerpt
         fields {
           slug
+          summaryHtml
         }
         frontmatter {
           published(formatString: "MMMM DD, YYYY")

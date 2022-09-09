@@ -41,7 +41,7 @@ const BlogPostTemplate = ({
         <PageHeader
           title={post.frontmatter?.title || siteTitle}
           published={post.frontmatter?.published}
-          summary={post.frontmatter?.summary || post.excerpt}
+          summary={post.fields.summaryHtml || post.excerpt}
           image={post.frontmatter?.cover}
         />
         <TextBlock
@@ -95,6 +95,9 @@ export const pageQuery = graphql`
       id
       excerpt(format: HTML)
       html
+      fields {
+        summaryHtml
+      }
       frontmatter {
         title
         published(formatString: "MMMM DD, YYYY")

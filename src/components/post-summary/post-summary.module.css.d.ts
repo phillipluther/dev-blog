@@ -4,7 +4,6 @@ export const header: string;
 export const title: string;
 export const date: string;
 export const image: string;
-export const centerer: string;
 export const readMore: string;
 export const icon: string;
 export const footer: string;
