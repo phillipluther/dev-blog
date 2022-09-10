@@ -1,11 +1,9 @@
 :root {
-  --postSummaryImageWidth-sm: 88px;
-  --postSummaryImageWidth-md: 240px;
+  --postSummaryImageWidth: 240px;
 }
 
 .wrapper {
   position: relative;
-  padding-left: var(--postSummaryImageWidth-sm);
 }
 
 .header {
@@ -36,12 +34,10 @@
 }
 
 .image {
-  position: absolute;
+  position: relative;
   left: calc(var(--spacing-sm) * -1);
   top: 0;
-  width: var(--postSummaryImageWidth-sm);
-  height: 200px;
-  overflow: hidden;
+  width: var(--postSummaryImageWidth);
   background: linear-gradient(
     to bottom right,
     var(--colorAccent1),
@@ -58,7 +54,7 @@
 
 @media screen and (min-width: 640px) {
   .wrapper {
-    padding-left: var(--postSummaryImageWidth-md);
+    padding-left: var(--postSummaryImageWidth);
   }
 
   .title {
@@ -66,9 +62,10 @@
   }
 
   .image {
+    position: absolute;
     left: calc(var(--spacing-md) * -1);
-    width: var(--postSummaryImageWidth-md);
-    height: calc(var(--postSummaryImageWidth-md) / 1.6);
+    width: var(--postSummaryImageWidth);
+    height: calc(var(--postSummaryImageWidth) / 1.6);
   }
 
   .readMore {

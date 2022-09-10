@@ -41,14 +41,7 @@ const PostSummary = ({
         <p className={styles.date}>{published}</p>
 
         <Link to={postPath} tabIndex={-1} className={styles.image}>
-          {coverImage && (
-            <GatsbyImage
-              // className={styles.centerer}
-              image={coverImage}
-              alt=""
-              aria-hidden
-            />
-          )}
+          {coverImage && <GatsbyImage image={coverImage} alt="" aria-hidden />}
           <VisuallyHidden elementType="span">{title}</VisuallyHidden>
         </Link>
       </header>
