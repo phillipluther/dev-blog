@@ -4,10 +4,6 @@ require('dotenv').config({
 
 const isProd = process.env.NODE_ENV === 'production';
 
-if (isProd) {
-  console.log('\n[ Creating production build ]\n');
-}
-
 const siteMetadata = {
   title: "Phillip Luther's Frontend Engineering Blog",
   author: 'Phillip Luther',

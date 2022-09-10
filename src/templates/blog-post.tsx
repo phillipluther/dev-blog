@@ -74,6 +74,7 @@ export const Head = ({
     <Seo
       title={post.frontmatter?.title || 'Title'}
       description={post.frontmatter?.summary || post.excerpt}
+      socialImage={post.frontmatter?.cover}
     />
   );
 };

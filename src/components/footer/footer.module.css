@@ -3,3 +3,15 @@
   background: var(--colorCore-darker);
   color: var(--colorCore-lightest);
 }
+
+.navList {
+  display: flex;
+  margin-left: calc(var(--spacing-xs) * -1);
+}
+
+.navLink {
+  display: block;
+  line-height: 48px;
+  white-space: nowrap;
+  padding: 0 var(--spacing-xs);
+}
