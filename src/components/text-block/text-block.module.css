@@ -96,6 +96,36 @@
   border-radius: 4px;
 }
 
+.wrapper blockquote {
+  position: relative;
+  padding-left: var(--spacing-md);
+  font-size: var(--fontSize-md);
+  z-index: 0;
+}
+
+.wrapper blockquote::before {
+  content: '“';
+  color: var(--colorCore-lighter);
+  font-size: 6rem;
+  line-height: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  z-index: -1;
+}
+
+.wrapper cite {
+  font-size: var(--fontSize-base);
+  font-style: italic;
+  color: var(--colorCore-dark);
+  position: relative;
+  top: calc(var(--fontSize-sm) * -1);
+}
+
+.wrapper cite::before {
+  content: '-- ';
+}
+
 .standard {
   font-size: var(--fontSize-base);
 }
@@ -112,4 +142,10 @@
 .finePrint p,
 .finePrint li {
   line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .wrapper blockquote {
+    padding-left: var(--spacing-lg);
+  }
 }
