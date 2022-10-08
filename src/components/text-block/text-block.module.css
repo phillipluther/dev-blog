@@ -98,6 +98,7 @@
 
 .wrapper blockquote {
   position: relative;
+  margin-top: var(--spacing-md);
   padding-left: var(--spacing-md);
   font-size: var(--fontSize-md);
   z-index: 0;
@@ -126,6 +127,23 @@
   content: '-- ';
 }
 
+.wrapper ul,
+.wrapper ol {
+  padding-left: var(--spacing-md);
+}
+
+.wrapper li {
+  padding-left: var(--spacing-xs);
+}
+
+.wrapper ul li {
+  list-style: disc;
+}
+
+.wrapper ol li {
+  list-style: decimal;
+}
+
 .standard {
   font-size: var(--fontSize-base);
 }
@@ -147,5 +165,6 @@
 @media (min-width: 640px) {
   .wrapper blockquote {
     padding-left: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
   }
 }

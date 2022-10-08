@@ -9,6 +9,15 @@
   margin-left: calc(var(--spacing-xs) * -1);
 }
 
+.navList li {
+  list-style: none !important;
+}
+
+.navList,
+.navList li {
+  padding-left: 0 !important;
+}
+
 .navLink {
   display: block;
   line-height: 48px;
