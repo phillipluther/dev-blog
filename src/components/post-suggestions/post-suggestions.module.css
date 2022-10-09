@@ -61,6 +61,10 @@
 }
 
 @media (min-width: 640px) {
+  .list {
+    justify-content: space-between;
+  }
+
   .item {
     margin-bottom: 0;
   }
@@ -73,11 +77,15 @@
 
   .previous,
   .next {
-    width: 50%;
+    width: 45%;
   }
 
   .previous .imageWrapper {
     left: 0;
+  }
+
+  .next .imageWrapper {
+    right: 0;
   }
 
   .right .imageWrapper {
